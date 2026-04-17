@@ -1,0 +1,14 @@
+/src
+  /models
+    - User.js
+    - Product.js
+    - Order.js
+  /controllers
+    - authController.js
+    - productController.js
+    - orderController.js
+  /routes
+    - authRoutes.js
+    - productRoutes.js
+    - orderRoutes.js
+  - server.js
