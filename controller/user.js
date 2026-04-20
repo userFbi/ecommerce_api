@@ -1,73 +1,103 @@
 const USER = require('../model/user');
 
-// Create a new user
+// Create User
 exports.createUser = async (req, res) => {
     try {
         const data = req.body;
-        const allData = await USER.create(data);
 
-        res.status(200).json({
+        const newUser = await USER.create(data);
+
+        res.status(201).json({
             status: 'Success',
-            message: 'User create success',
-            data: allData,
-        })
+            message: 'User created successfully',
+            data: newUser
+        });
+
     } catch (error) {
-        res.status(404).json({
+        res.status(400).json({
             status: 'Fail',
             message: error.message
-        })
+        });
     }
-}
+};
 
+
+// View Users
 exports.viewUser = async (req, res) => {
     try {
-        const allData = await USER.find();
+        const users = await USER.find();
+
         res.status(200).json({
             status: 'Success',
-            message: 'User view success',
-            data: allData,
+            results: users.length,
+            data: users
+        });
 
-        })
     } catch (error) {
-        res.status(404).json({
+        res.status(500).json({
             status: 'Fail',
             message: error.message
-        })
+        });
     }
-}
+};
 
+
+// Delete User
 exports.deleteUser = async (req, res) => {
     try {
-        const delteId = req.params.id
-        const deleteData = await USER.findByIdAndDelete(delteId)
+        const deleteId = req.params.id;
+
+        const deletedUser = await USER.findByIdAndDelete(deleteId);
+
+        if (!deletedUser) {
+            return res.status(404).json({
+                status: 'Fail',
+                message: 'User not found'
+            });
+        }
+
         res.status(200).json({
             status: 'Success',
-            message: 'User delete success',
-            data: deleteData
-        })
+            message: 'User deleted successfully'
+        });
+
     } catch (error) {
-        res.status(404).json({
+        res.status(500).json({
             status: 'Fail',
             message: error.message
-        })
+        });
     }
-}
+};
 
+
+// Update User
 exports.updateUser = async (req, res) => {
     try {
-        const updateId = req.params.id
-        const data = req.body
-        const updateData = await USER.findByIdAndUpdate(updateId, data, { new: true })
+        const updateId = req.params.id;
+        const data = req.body;
+
+        const updatedUser = await USER.findByIdAndUpdate(updateId, data, {
+            new: true,
+            runValidators: true
+        });
+
+        if (!updatedUser) {
+            return res.status(404).json({
+                status: 'Fail',
+                message: 'User not found'
+            });
+        }
+
         res.status(200).json({
             status: 'Success',
-            message: 'User update success',
-            data: updateData
-        })
-    }
-    catch (error) {
-        res.status(404).json({
+            message: 'User updated successfully',
+            data: updatedUser
+        });
+
+    } catch (error) {
+        res.status(400).json({
             status: 'Fail',
             message: error.message
-        })
+        });
     }
-}
+};

@@ -16,6 +16,10 @@ mongoose.connect('mongodb://localhost:27017/ecommerce')
 var indexRouter = require('./routes/index');
 
 const usersRouter = require('./routes/user');
+const ordersRouter = require('./routes/order');
+const productsRouter = require('./routes/product');
+const cartRouter = require('./routes/cart');
+const categoryRouter = require('./routes/categories');
 
 
 var app = express();
@@ -32,7 +36,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use('/orders', ordersRouter);
+app.use('/products', productsRouter);
+app.use('/carts', cartRouter);
+app.use('/categories', categoryRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

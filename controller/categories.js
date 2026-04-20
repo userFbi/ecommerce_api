@@ -1,15 +1,16 @@
-const PRODUCT = require('../model/product');
+const CATEGORY = require('../model/categories');
 
-exports.createProduct = async (req, res) => {
+exports.createCategories = async (req, res) => {
     try {
         const data = req.body;
-        const createProduct = await PRODUCT.create(data);
+        const allData = await CATEGORY.create(data);
 
         res.status(201).json({
             status: 'Success',
-            message: 'Prodcut created successfully',
-            data: createProduct
-        })
+            message: 'Category created successfully',
+            data: allData
+        });
+
     } catch (error) {
         res.status(400).json({
             status: 'Fail',
@@ -17,16 +18,16 @@ exports.createProduct = async (req, res) => {
         });
     }
 }
-
-exports.viewProduct = async (req, res) => {
+exports.viewCategories = async (req, res) => {
     try {
-        const viewProduct = await PRODUCT.find();
+        const allData = await CATEGORY.find();
 
         res.status(201).json({
             status: 'Success',
-            message: 'Prodcut viewed successfully',
-            data: viewProduct
-        })
+            message: 'Category viewed successfully',
+            data: allData
+        });
+
     } catch (error) {
         res.status(400).json({
             status: 'Fail',
@@ -34,17 +35,17 @@ exports.viewProduct = async (req, res) => {
         });
     }
 }
-
-exports.deleteProduct = async (req, res) => {
+exports.deleteCategories = async (req, res) => {
     try {
         const deleteId = req.params.id;
-        const deleteProduct = await PRODUCT.findByIdAndDelete(deleteId);
+        const allData = await CATEGORY.findByIdAndDelete(deleteId, { new: true });
 
         res.status(201).json({
             status: 'Success',
-            message: 'Prodcut deleted successfully',
-            data: deleteProduct
-        })
+            message: 'Category deleted successfully',
+            data: allData
+        });
+
     } catch (error) {
         res.status(400).json({
             status: 'Fail',
@@ -52,18 +53,18 @@ exports.deleteProduct = async (req, res) => {
         });
     }
 }
-
-exports.updateProdcut = async (req, res) => {
+exports.updateCategories = async (req, res) => {
     try {
-        const updateId = req.params.id;
         const data = req.body;
-        const updateProduct = await PRODUCT.findByIdAndUpdate(updateId, data, { new: true });
+        const updateId = req.params.id;
+        const allData = await CATEGORY.findByIdAndUpdate(updateId, data, { new: true });
 
         res.status(201).json({
             status: 'Success',
-            message: 'Prodcut updated successfully',
-            data: updateProduct
-        })
+            message: 'Category updated successfully',
+            data: allData
+        });
+
     } catch (error) {
         res.status(400).json({
             status: 'Fail',
