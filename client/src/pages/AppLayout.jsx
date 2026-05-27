@@ -39,7 +39,7 @@ export default function AppLayout() {
         }
     };
 
-    
+
 
     useEffect(() => {
         const delayDebounceFn = setTimeout(() => {
@@ -78,7 +78,7 @@ export default function AppLayout() {
                         </button>
                     </div>
 
-                    <Link to="/users" className="hidden md:flex flex-col border border-transparent hover:border-white p-2 cursor-pointer transition ml-4">
+                    <Link to="/user" className="hidden md:flex flex-col border border-transparent hover:border-white p-2 cursor-pointer transition ml-4">
                         <p className="text-xs">Hello, Sign in</p>
                         <p className="text-sm font-bold">Account & Lists</p>
                     </Link>
@@ -92,7 +92,6 @@ export default function AppLayout() {
                         <Menu size={20} /> All
                     </span>
                     <span className="cursor-pointer border-b-2 border-transparent hover:border-white">Fresh</span>
-                    <span className="cursor-pointer border-b-2 border-transparent hover:border-white">Amazon miniTV</span>
                     <span className="cursor-pointer border-b-2 border-transparent hover:border-white">Mobiles</span>
                     <span className="cursor-pointer border-b-2 border-transparent hover:border-white">Best Sellers</span>
                 </div>

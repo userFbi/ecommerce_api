@@ -4,6 +4,7 @@ import {
   Routes
 } from "react-router-dom";
 import AppLayout from "./pages/AppLayout"
+import AuthForm from "./pages/AuthForm"
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
           <Route path="/cart" element={<AppLayout />} />
           <Route path="/order" element={<AppLayout />} />
           <Route path="/prodcut" element={<AppLayout />} />
-          <Route path="/user" element={<AppLayout />} />
+          <Route path="/user" element={<AuthForm />} />
         </Routes>
 
       </Router>
