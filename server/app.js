@@ -5,15 +5,20 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require("cors");
 
-var mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/ecommerce')
-  .then(() => {
-    console.log("Connection success");
-  })
-  .catch((error) => {
-    console.log(error);
-  })
+// var mongoose = require('mongoose')
+// mongoose.connect('mongodb://localhost:27017/ecommerce')
+//   .then(() => {
+//     console.log("Connection success");
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
 
+
+require('dotenv').config(); // must be first line
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('✅ MongoDB Connected'))
+  .catch(err => console.error('❌ Error:', err.message));
 
 var indexRouter = require('./routes/index');
 
