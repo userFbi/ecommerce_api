@@ -68,7 +68,9 @@ const AuthForm = () => {
         <div className="min-h-screen flex items-center justify-center bg-[#f3f3f3] px-4">
             <div className="w-full max-w-[380px] bg-white border border-gray-300 rounded-xl p-8 shadow-md">
 
-                {/* Logo */}
+                {/* Logo
+                Logo
+                Logo */}
                 <div className="flex justify-center mb-6">
                     <div className="flex items-center gap-1 border border-transparent hover:border-white p-2 cursor-pointer transition">
                         <h1 className="text-2xl font-black italic tracking-tighter">Shop<span className="text-orange-400">.in</span></h1>
