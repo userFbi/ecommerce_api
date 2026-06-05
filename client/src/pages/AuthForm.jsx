@@ -69,16 +69,11 @@ const AuthForm = () => {
             <div className="w-full max-w-[380px] bg-white border border-gray-300 rounded-xl p-8 shadow-md">
 
                 {/* Logo */}
-                {/* <div className="flex justify-center mb-6">
+                <div className="flex justify-center mb-6">
                     <div className="flex items-center gap-1 border border-transparent hover:border-white p-2 cursor-pointer transition">
                         <h1 className="text-2xl font-black italic tracking-tighter">Shop<span className="text-orange-400">.in</span></h1>
                     </div>
-                </div> */}
-
-                {/* Heading */}
-                <h2 className="text-2xl flex justify-center font-bold text-black mb-6">
-                    {isLogin ? "Sign In" : "Create Account"}
-                </h2>
+                </div>
 
                 <form onSubmit={handleSubmit}>
 
